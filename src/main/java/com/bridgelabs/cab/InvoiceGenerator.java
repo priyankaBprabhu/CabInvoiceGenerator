@@ -28,4 +28,12 @@ public class InvoiceGenerator {
         Ride ride = new Ride(distance,time);
         rides.add(ride);
     }
+
+    public InvoiceBill getInvoiceBill() {
+        int totalRides = rides.size();
+        double totalFare =  this.getTotalFare();
+        int avg =(int) totalFare/totalRides;
+        return new InvoiceBill(totalRides,totalFare,avg);
+    }
+
 }

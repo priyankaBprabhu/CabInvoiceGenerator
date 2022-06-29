@@ -28,4 +28,15 @@ public class CabInvoiceGeneratorTest {
         Assert.assertEquals(150,totalFare,0.0);
 
     }
+    @Test
+    public void given_MultipleRide_ShouldReturnInvoiceBill() {
+        InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+        invoiceGenerator.addRide(2,10);
+        invoiceGenerator.addRide(3,20);
+        invoiceGenerator.addRide(4,30);
+        InvoiceBill invoiceBill = invoiceGenerator.getInvoiceBill();
+        InvoiceBill expectedBill = new InvoiceBill(3,150,50);
+        Assert.assertEquals(expectedBill,invoiceBill);
+
+    }
 }
