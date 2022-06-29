@@ -18,4 +18,14 @@ public class CabInvoiceGeneratorTest {
         Assert.assertEquals(5,fare,0.0);
 
     }
+    @Test
+    public void given_MultipleRide_ShouldReturnTotalFare() {
+        InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+        invoiceGenerator.addRide(2,10);
+        invoiceGenerator.addRide(3,20);
+        invoiceGenerator.addRide(4,30);
+        double totalFare = invoiceGenerator.getTotalFare();
+        Assert.assertEquals(150,totalFare,0.0);
+
+    }
 }
